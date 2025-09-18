@@ -1,16 +1,39 @@
 using UnityEngine;
 
-public class ChaseState : MonoBehaviour
+public class ChaseState : IState
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    private StateManager _stateManager;
+
+    public ChaseState(StateManager stateManager)
     {
-        
+        _stateManager = stateManager;
+    }
+    public void Enter()
+    {
+        Debug.Log("Entering Chase State");
     }
 
-    // Update is called once per frame
-    void Update()
+    public void Exit()
     {
-        
+        Debug.Log("Exiting Chase State");
     }
+
+    public void Update()
+    {
+
+    }
+    public void FixedUpdate()
+    {
+        if (_stateManager.PlayerChecker.IsPlayerInRange())
+        {
+            _stateManager.CharacterMover.MoveTo(_stateManager.PlayerChecker.GetPlayerPosition());
+        }
+        else
+        {
+            _stateManager.ChangeState(_stateManager.PatrolState);
+        }
+    }
+
+ 
+
 }

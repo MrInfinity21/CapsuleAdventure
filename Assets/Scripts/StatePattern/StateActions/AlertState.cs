@@ -1,16 +1,32 @@
 using UnityEngine;
 
-public class AlertState : MonoBehaviour
+public class AlertState : IState
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+
+    private StateManager _stateManager;
+
+    public AlertState(StateManager stateManager)
     {
-        
+        _stateManager = stateManager;
+    }
+    public void Enter()
+    {
+
     }
 
-    // Update is called once per frame
-    void Update()
+    public void Exit()
     {
-        
+
     }
+    public void Update()
+    {
+
+    }
+
+    public void FixedUpdate()
+    {
+
+    }
+
+  
 }

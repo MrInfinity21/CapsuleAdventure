@@ -1,16 +1,32 @@
 using UnityEngine;
 
-public class AttackState : MonoBehaviour
+public class AttackState : IState
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    private StateManager _stateManager;
+
+    public AttackState(StateManager stateManager)
     {
-        
+        _stateManager = stateManager;
+    }
+    public void Enter()
+    {
+
     }
 
-    // Update is called once per frame
-    void Update()
+    public void Exit()
     {
-        
+
     }
+
+    public void Update()
+    {
+
+    }
+
+    public void FixedUpdate()
+    {
+
+    }
+
+  
 }

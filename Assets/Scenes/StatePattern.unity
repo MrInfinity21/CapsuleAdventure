@@ -130,6 +130,10 @@ GameObject:
   - component: {fileID: 82412110}
   - component: {fileID: 82412109}
   - component: {fileID: 82412108}
+  - component: {fileID: 82412114}
+  - component: {fileID: 82412113}
+  - component: {fileID: 82412112}
+  - component: {fileID: 82412111}
   m_Layer: 0
   m_Name: Enemy
   m_TagString: Player
@@ -206,6 +210,69 @@ Transform:
   - {fileID: 378301670}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!195 &82412111
+NavMeshAgent:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 82412103}
+  m_Enabled: 1
+  m_AgentTypeID: 0
+  m_Radius: 0.5
+  m_Speed: 3.5
+  m_Acceleration: 8
+  avoidancePriority: 50
+  m_AngularSpeed: 120
+  m_StoppingDistance: 0
+  m_AutoTraverseOffMeshLink: 1
+  m_AutoBraking: 1
+  m_AutoRepath: 1
+  m_Height: 2
+  m_BaseOffset: 1
+  m_WalkableMask: 4294967295
+  m_ObstacleAvoidanceType: 4
+--- !u!114 &82412112
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 82412103}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8b00fbb7c54d9124082480ac47b2c735, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  agent: {fileID: 82412111}
+--- !u!114 &82412113
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 82412103}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 815f649acfac0544c9a78d6abf1f8bb3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  checkRadius: 5
+  playerTransform: {fileID: 1744557141}
+--- !u!114 &82412114
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 82412103}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 57f13b65df6ea9c4d88e277aff6e8b96, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerChecker: {fileID: 82412113}
+  characterMover: {fileID: 82412112}
 --- !u!1 &85275358
 GameObject:
   m_ObjectHideFlags: 0

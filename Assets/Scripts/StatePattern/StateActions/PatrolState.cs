@@ -1,16 +1,34 @@
 using UnityEngine;
 
-public class PatrolState : MonoBehaviour
+public class PatrolState : IState
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    private StateManager _stateManager;
+
+    public PatrolState(StateManager stateManager)
     {
-        
+        _stateManager = stateManager;
+    }
+    public void Enter()
+    {
+        Debug.Log("Entering Patrol State");
     }
 
-    // Update is called once per frame
-    void Update()
+    public void Exit()
     {
-        
+        Debug.Log("Exiting Patrol State");
     }
+
+    public void Update()
+    {
+
+    }
+    public void FixedUpdate()
+    {
+        if (_stateManager.PlayerChecker.IsPlayerInRange())
+        {
+            _stateManager.ChangeState(_stateManager.ChaseState);
+        }
+    }
+
+ 
 }
