@@ -8,6 +8,11 @@ public class CharacterMover : MonoBehaviour
 
     private Vector3 _targetPosition;
 
+    private void Start()
+    {
+        agent.stoppingDistance = 1f;
+    }
+
     public void MoveTo(Transform targetTransform)
     {
         _targetPosition = targetTransform.position;

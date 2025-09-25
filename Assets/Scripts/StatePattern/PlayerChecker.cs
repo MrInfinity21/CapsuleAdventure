@@ -6,8 +6,7 @@ public class PlayerChecker : MonoBehaviour
     [SerializeField] private float checkRadius = 5f;
 
     [SerializeField] private Transform playerTransform;
-    
-    
+
     public bool IsPlayerInRange()
     {
         float distance = Vector3.Distance(transform.position, playerTransform.position);

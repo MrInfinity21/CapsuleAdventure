@@ -10,10 +10,11 @@ public class PlayerMovement : MonoBehaviour
     private Vector2 _moveInput;
     private Vector2 _lookInput;
     private Vector3 _charaVelocity;
+    private bool _isJumpPressed;
 
     [Header("Movement Values")]
     [SerializeField] private float _speed = 3f;
-    [SerializeField] private float _jumpHeitght = 1.5f;
+    [SerializeField] private float _jumpHeight = 1.5f;
     [SerializeField] private float _gravity = -9.81f;
 
     [Header("Camera Look")]
@@ -33,6 +34,11 @@ public class PlayerMovement : MonoBehaviour
         //My Camera Movement
         _inputActions.Player.Look.performed += context => _lookInput = context.ReadValue<Vector2>();
         _inputActions.Player.Look.canceled += context => _lookInput = Vector2.zero;
+
+        //Jump
+        _inputActions.Player.Jump.performed += context => _isJumpPressed = true;
+        _inputActions.Player.Jump.canceled += context => _isJumpPressed = false;
+
     }
 
     private void OnEnable() => _inputActions.Enable();
@@ -54,9 +60,15 @@ public class PlayerMovement : MonoBehaviour
         Vector3 moveDirection = transform.right * _moveInput.x + transform.forward * _moveInput.y;
         Vector3 horizontalVelocity = moveDirection * _speed;
 
-        if (_characterControl.isGrounded && _charaVelocity.y < 0)
+        if (_characterControl.isGrounded)
         {
+            if(_charaVelocity.y < 0)
             _charaVelocity.y = -2f;
+
+            if (_isJumpPressed)
+            {
+                _charaVelocity.y = Mathf.Sqrt(_jumpHeight * -2f * _gravity);
+            }
         }
 
         _charaVelocity.y += _gravity * Time.deltaTime;
