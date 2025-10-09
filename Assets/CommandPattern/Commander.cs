@@ -10,28 +10,32 @@ public class Commander : MonoBehaviour
     
     public GameObject buildingPrefab;
     
-    public Transform[] pointArray;
+    public Transform[] _destination;
 
-    public NavMeshAgent agent;
+    public NavMeshAgent _agent;
 
 
 
     private ICommand _currentCommand; //The Current command being executed
     
-    private Queue<ICommand> _commandQueue = new Queue<ICommand>(); //Queue to hold commands
+    private Queue<ICommand> _commandQueue = new(); //Queue to hold commands
 
     void Start()
     {
         // populate the command queue
 
-        _commandQueue.Enqueue(new MoveCommand(agent, pointArray[0].position));
+        _commandQueue.Enqueue(new MoveCommand(_agent, _destination[0].position));
         _commandQueue.Enqueue(new StayCommand(2));
-        _commandQueue.Enqueue(new MoveCommand(agent, pointArray[0].position));
+
+        _commandQueue.Enqueue(new MoveCommand(_agent, _destination[1].position));
         _commandQueue.Enqueue(new StayCommand(2));
-        _commandQueue.Enqueue(new BuildCommand(buildingPrefab, pointArray[0].position));
-        _commandQueue.Enqueue(new StayCommand(1));
-        _commandQueue.Enqueue(new MoveCommand(agent, pointArray[0].position));
-        _commandQueue.Enqueue(new StayCommand(1));
+        
+        _commandQueue.Enqueue(new BuildCommand(buildingPrefab, _destination[1].position));
+        _commandQueue.Enqueue(new StayCommand(2));
+        
+        _commandQueue.Enqueue(new MoveCommand(_agent, _destination[2].position));
+        _commandQueue.Enqueue(new StayCommand(2));
+        
         _commandQueue.Enqueue(new SpeakCommand("Ok Boss"));
     }
 
