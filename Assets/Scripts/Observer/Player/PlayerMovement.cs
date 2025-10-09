@@ -1,5 +1,7 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.Events;
+using TMPro;
 
 [RequireComponent(typeof(CharacterController))]
 public class PlayerMovement : MonoBehaviour
@@ -11,9 +13,11 @@ public class PlayerMovement : MonoBehaviour
     private Vector2 _lookInput;
     private Vector3 _charaVelocity;
     private bool _isJumpPressed;
+    private bool _isSprinting;
 
     [Header("Movement Values")]
-    [SerializeField] private float _speed = 3f;
+    [SerializeField] private float _walkSpeed = 3f;
+    [SerializeField] private float _sprintSpeed = 6f;
     [SerializeField] private float _jumpHeight = 1.5f;
     [SerializeField] private float _gravity = -9.81f;
 
@@ -22,6 +26,15 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private float mouseSensitivty = 2f;
     private float _xRotation;
 
+    [Header("Sprint/Stamina")]
+    [SerializeField] private float maxStamina = 100f;
+    [SerializeField] private float staminaDrainRate = 25f;
+    [SerializeField] private float staminaRegenRate = 15f;
+    private float currentStamina;
+    
+    [Header("UI")]
+    [SerializeField] private TextMeshProUGUI staminaText;
+ 
     private void Awake()
     {
         _characterControl = GetComponent<CharacterController>();
@@ -39,6 +52,10 @@ public class PlayerMovement : MonoBehaviour
         _inputActions.Player.Jump.performed += context => _isJumpPressed = true;
         _inputActions.Player.Jump.canceled += context => _isJumpPressed = false;
 
+        // Sprint (hold Shift)
+        _inputActions.Player.Sprint.performed += ctx => SetSprinting(true);
+        _inputActions.Player.Sprint.canceled += ctx => SetSprinting(false);
+
     }
 
     private void OnEnable() => _inputActions.Enable();
@@ -47,18 +64,22 @@ public class PlayerMovement : MonoBehaviour
     private void Start()
     {
        Cursor.lockState = CursorLockMode.Locked;
-        Cursor.visible = false;
+       Cursor.visible = false;
+
+        currentStamina = maxStamina;
+        UpdateStaminaText();
     }
     private void Update()
     {
         MoveCharacter();
         LookAround();
+        HandleStamina();
     }
 
     private void MoveCharacter()
     {
         Vector3 moveDirection = transform.right * _moveInput.x + transform.forward * _moveInput.y;
-        Vector3 horizontalVelocity = moveDirection * _speed;
+        Vector3 horizontalVelocity = moveDirection * _walkSpeed;
 
         if (_characterControl.isGrounded)
         {
@@ -90,4 +111,41 @@ public class PlayerMovement : MonoBehaviour
         // Rotate player body L/R
         transform.Rotate(Vector3.up * mouseX);
     }   
+
+    private void HandleStamina()
+    {
+        if(_isSprinting && _moveInput.magnitude > 0f)
+        {
+            currentStamina -= staminaDrainRate * Time.deltaTime;
+            if (currentStamina <= 0f)
+            {
+                currentStamina = 0f;
+                SetSprinting(false);
+            }
+        }
+        else
+        {
+            currentStamina += staminaRegenRate * Time.deltaTime;
+            if (currentStamina > maxStamina)
+                currentStamina = maxStamina;
+        }
+
+        UpdateStaminaText();
+    }
+
+    private void UpdateStaminaText()
+    {
+        if (staminaText != null)
+            staminaText.text = $"Stamina: {Mathf.RoundToInt(currentStamina)} / {Mathf.RoundToInt(maxStamina)}";
+    }
+
+    private void SetSprinting(bool sprinting)
+    {
+        if (sprinting && currentStamina <= 0f)
+            sprinting = false;
+
+        _isSprinting = sprinting;
+    }
+
+   
 }
