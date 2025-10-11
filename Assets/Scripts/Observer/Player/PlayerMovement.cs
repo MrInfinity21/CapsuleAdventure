@@ -3,6 +3,7 @@ using UnityEngine.InputSystem;
 using UnityEngine.Events;
 using TMPro;
 
+
 [RequireComponent(typeof(CharacterController))]
 public class PlayerMovement : MonoBehaviour
 {
@@ -78,8 +79,9 @@ public class PlayerMovement : MonoBehaviour
 
     private void MoveCharacter()
     {
+        float currentSpeed = _isSprinting ? _sprintSpeed : _walkSpeed;
         Vector3 moveDirection = transform.right * _moveInput.x + transform.forward * _moveInput.y;
-        Vector3 horizontalVelocity = moveDirection * _walkSpeed;
+        Vector3 horizontalVelocity = moveDirection * currentSpeed;
 
         if (_characterControl.isGrounded)
         {
@@ -114,6 +116,9 @@ public class PlayerMovement : MonoBehaviour
 
     private void HandleStamina()
     {
+        if (_isSprinting && _moveInput.magnitude <= 0.1f)
+            SetSprinting(false);
+
         if(_isSprinting && _moveInput.magnitude > 0f)
         {
             currentStamina -= staminaDrainRate * Time.deltaTime;
