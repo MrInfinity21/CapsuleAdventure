@@ -69,7 +69,7 @@ public class PlayerMovement : MonoBehaviour
        Cursor.visible = false;
 
         currentStamina = maxStamina;
-        UpdateStaminaText();
+       
     }
     private void Update()
     {
@@ -131,14 +131,10 @@ public class PlayerMovement : MonoBehaviour
         }
      
 
-        UpdateStaminaText();
+       
     }
 
-    private void UpdateStaminaText()
-    {
-        if (staminaText != null)
-            staminaText.text = $"Stamina: {Mathf.RoundToInt(currentStamina)} / {Mathf.RoundToInt(maxStamina)}";
-    }
+    
 
     private void SetSprinting(bool sprinting)
     {
