@@ -2,6 +2,7 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.Events;
 using TMPro;
+using UnityEngine.Rendering;
 
 
 [RequireComponent(typeof(CharacterController))]
@@ -152,5 +153,7 @@ public class PlayerMovement : MonoBehaviour
         _isSprinting = sprinting;
     }
 
+    public float GetCurrentStamina() => currentStamina;
+    public float GetMaxStamina() => maxStamina;
    
 }

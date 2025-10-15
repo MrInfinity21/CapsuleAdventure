@@ -1,40 +1,52 @@
 using UnityEngine;
 using TMPro;
-using UnityEngine.SceneManagement;
+using UnityEngine.UI;
+
 using System.Globalization;
 
 public class PlayerHealthUI : MonoBehaviour
 {
     [SerializeField] private PlayerHealth _playerHealth;
-    [SerializeField] private TextMeshProUGUI _healthText;
+    [SerializeField] private Image _foregroundImage;
+    [SerializeField] private Image _backgorundImage;
   
     private void OnEnable()
     {
+        if (_playerHealth == null)
+            _playerHealth = FindFirstObjectByType<PlayerHealth>();
+
         if (_playerHealth != null)
         {
-            _playerHealth.OnHealthChanged += UpdateHealthText;
+            _playerHealth.OnHealthChanged += UpdateHealthBar;
             _playerHealth.OnPlayerDeath += HandlePlayerDeath;
+
+            UpdateHealthBar(_playerHealth.CurrentHealth);
         }
     }
-    private void Start()
-    {
-        UpdateHealthText(_playerHealth.CurrentHealth);
-    }
 
-    private void UpdateHealthText(int currentHealth)
+    private void OnDisable()
     {
-        _healthText.text = $"HEALTH: {currentHealth}";
+        if (_playerHealth != null)
+        {
+            _playerHealth.OnHealthChanged -= UpdateHealthBar;
+            _playerHealth.OnPlayerDeath -= HandlePlayerDeath;
+        } 
+    }
+    
+    private void UpdateHealthBar(int currentHealth)
+    {
+        if (_playerHealth == null) return;
+
+        float fillValue = (float)currentHealth / _playerHealth.MaxHealth;
+        _foregroundImage.fillAmount = fillValue;
+
     }
 
     private void HandlePlayerDeath()
     {
-        
-        _healthText.text = "You Died";
 
-        
-        Destroy(_playerHealth.gameObject, 0.1f);
-
-       
+        Debug.Log("[PlayerHealthUI] Player Died!");
+        _foregroundImage.fillAmount = 0f;   
     }
 
   

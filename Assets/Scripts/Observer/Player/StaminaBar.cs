@@ -1,16 +1,24 @@
 using UnityEngine;
-
+using UnityEngine.UI;
 public class StaminaBar : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    [SerializeField] private PlayerMovement _playerMovement;
+    [SerializeField] private Image foregroundImage;
+    [SerializeField] private Image backgroundImage;
+    [SerializeField] private float smoothSpeed = 5f;
+    private void Start()
     {
-        
+        if(_playerMovement == null)
+            _playerMovement = FindFirstObjectByType<PlayerMovement>();
     }
 
-    // Update is called once per frame
-    void Update()
+    private void Update()
     {
-        
+        if (_playerMovement == null) return;
+
+        float targetFill = _playerMovement.GetCurrentStamina() / _playerMovement.GetMaxStamina();
+        foregroundImage.fillAmount = Mathf.Lerp(foregroundImage.fillAmount, targetFill, smoothSpeed);
+
+        Debug.Log($"[StaminaBar] Stamina: {_playerMovement.GetCurrentStamina():F1}/{_playerMovement.GetMaxStamina():F1} | Fill = {foregroundImage.fillAmount:F2}");
     }
 }
