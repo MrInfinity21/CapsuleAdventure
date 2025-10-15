@@ -31,4 +31,15 @@ public class PlayerHealth : MonoBehaviour
             OnPlayerDeath?.Invoke();
         }
     }
+
+    public void RestoreHealth(int amount)
+    {
+        _currentHealth += amount;
+        _currentHealth = Mathf.Clamp(_currentHealth, 0, _maxHealth);
+
+        OnHealthChanged?.Invoke(_currentHealth);
+
+        Debug.Log($"Health restored by {amount}.Current: {_currentHealth}/{_maxHealth}");
+    }
+ 
 }

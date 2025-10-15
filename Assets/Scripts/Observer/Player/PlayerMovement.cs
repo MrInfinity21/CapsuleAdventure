@@ -129,12 +129,7 @@ public class PlayerMovement : MonoBehaviour
                 SetSprinting(false);
             }
         }
-        else
-        {
-            currentStamina += staminaRegenRate * Time.deltaTime;
-            if (currentStamina > maxStamina)
-                currentStamina = maxStamina;
-        }
+     
 
         UpdateStaminaText();
     }
