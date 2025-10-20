@@ -117,24 +117,20 @@ public class PlayerMovement : MonoBehaviour
 
     private void HandleStamina()
     {
-        if (_isSprinting && _moveInput.magnitude <= 0.1f)
-            SetSprinting(false);
-
-        if(_isSprinting && _moveInput.magnitude > 0f)
+        if(_isSprinting && currentStamina > 0f)
         {
             currentStamina -= staminaDrainRate * Time.deltaTime;
-            if (currentStamina <= 0f)
+            if(currentStamina <= 0f)
             {
                 currentStamina = 0f;
                 SetSprinting(false);
             }
         }
-     
+        
 
-       
+        if (staminaText != null)
+            staminaText.text = $"Stamina: {Mathf.RoundToInt(currentStamina)}/{Mathf.RoundToInt(maxStamina)}";       
     }
-
-    
 
     private void SetSprinting(bool sprinting)
     {
@@ -146,5 +142,12 @@ public class PlayerMovement : MonoBehaviour
 
     public float GetCurrentStamina() => currentStamina;
     public float GetMaxStamina() => maxStamina;
+
+    public void RestoreStamina(float amount)
+    {
+        if (amount <= 0f) return;
+
+        currentStamina = Mathf.Min(currentStamina + amount, maxStamina);
+    }
    
 }

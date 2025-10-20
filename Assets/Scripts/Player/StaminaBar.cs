@@ -17,7 +17,7 @@ public class StaminaBar : MonoBehaviour
         if (_playerMovement == null) return;
 
         float targetFill = _playerMovement.GetCurrentStamina() / _playerMovement.GetMaxStamina();
-        foregroundImage.fillAmount = Mathf.Lerp(foregroundImage.fillAmount, targetFill, smoothSpeed);
+        foregroundImage.fillAmount = Mathf.Lerp(foregroundImage.fillAmount, targetFill, smoothSpeed * Time.deltaTime);
 
         Debug.Log($"[StaminaBar] Stamina: {_playerMovement.GetCurrentStamina():F1}/{_playerMovement.GetMaxStamina():F1} | Fill = {foregroundImage.fillAmount:F2}");
     }
