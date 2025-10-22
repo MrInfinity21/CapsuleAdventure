@@ -5044,6 +5044,7 @@ MonoBehaviour:
   _playerHealth: {fileID: 1744557146}
   _foregroundImage: {fileID: 1566599664}
   _backgorundImage: {fileID: 833005385}
+  _smoothSpeed: 5
 --- !u!114 &1744557151
 MonoBehaviour:
   m_ObjectHideFlags: 0

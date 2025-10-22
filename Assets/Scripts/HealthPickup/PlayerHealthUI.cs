@@ -2,14 +2,18 @@ using UnityEngine;
 using TMPro;
 using UnityEngine.UI;
 
-using System.Globalization;
 
 public class PlayerHealthUI : MonoBehaviour
 {
     [SerializeField] private PlayerHealth _playerHealth;
     [SerializeField] private Image _foregroundImage;
     [SerializeField] private Image _backgorundImage;
-  
+    [SerializeField] private float _smoothSpeed;
+    private float _targetFill;
+
+
+
+    
     private void OnEnable()
     {
         if (_playerHealth == null)
@@ -32,13 +36,21 @@ public class PlayerHealthUI : MonoBehaviour
             _playerHealth.OnPlayerDeath -= HandlePlayerDeath;
         } 
     }
-    
+
+    private void Update()
+    {
+        if (_foregroundImage.fillAmount != _targetFill)
+        {
+            _foregroundImage.fillAmount = Mathf.Lerp(_foregroundImage.fillAmount, _targetFill, Time.deltaTime * _smoothSpeed);
+
+        }
+    }
+
     private void UpdateHealthBar(int currentHealth)
     {
         if (_playerHealth == null) return;
 
-        float fillValue = (float)currentHealth / _playerHealth.MaxHealth;
-        _foregroundImage.fillAmount = fillValue;
+        _targetFill = (float)currentHealth / _playerHealth.MaxHealth;
 
     }
 
@@ -46,7 +58,7 @@ public class PlayerHealthUI : MonoBehaviour
     {
 
         Debug.Log("[PlayerHealthUI] Player Died!");
-        _foregroundImage.fillAmount = 0f;   
+        _targetFill = 0f;   
     }
 
   
