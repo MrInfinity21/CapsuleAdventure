@@ -36,7 +36,10 @@ public class PlayerMovement : MonoBehaviour
     
     [Header("UI")]
     [SerializeField] private TextMeshProUGUI staminaText;
- 
+
+
+    [Header("Melee Weapon")]
+    [SerializeField] private PlayerMelee meleeAttack;
     private void Awake()
     {
         _characterControl = GetComponent<CharacterController>();
@@ -58,6 +61,9 @@ public class PlayerMovement : MonoBehaviour
         _inputActions.Player.Sprint.performed += ctx => SetSprinting(true);
         _inputActions.Player.Sprint.canceled += ctx => SetSprinting(false);
 
+
+        // Attack button triggers the swing in melee script
+        _inputActions.Player.Attack.performed += ctx => meleeAttack.Swing();
     }
 
     private void OnEnable() => _inputActions.Enable();
