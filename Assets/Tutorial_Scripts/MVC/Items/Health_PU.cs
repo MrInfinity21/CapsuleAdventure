@@ -4,20 +4,21 @@ using UnityEngine.Events;
 public class Health_PU : MonoBehaviour, ILifeCollectable
 {
     [SerializeField] private int healthAmount = 20;
+    [SerializeField] private InventoryItem _itemData;
 
     public int HealthAmount => healthAmount;
 
     public UnityEvent OnCollected;
-    public UnityEvent<int> OnHealthRestored;
+    //public UnityEvent<int> OnHealthRestored;
 
     public void Collect(GameObject collector)
     {
-        PlayerHealth playerHealth = collector.GetComponent<PlayerHealth>();
-        if (playerHealth != null)
-        {
-            playerHealth.RestoreHealth(healthAmount);
-            OnHealthRestored?.Invoke(healthAmount);
-        }
+        //PlayerHealth playerHealth = collector.GetComponent<PlayerHealth>();
+        //if (playerHealth != null)
+        //{
+        //    playerHealth.RestoreHealth(healthAmount);
+        //    OnHealthRestored?.Invoke(healthAmount);
+        //}
 
         OnCollected?.Invoke();
         Destroy(gameObject);
@@ -27,7 +28,9 @@ public class Health_PU : MonoBehaviour, ILifeCollectable
     {
         if (other.TryGetComponent<PlayerHealth>(out var playerHealth))
         {
-            Collect(other.gameObject);
+            //Collect(other.gameObject);
+            InventoryController.Instance.AddItemToInventory(_itemData);
+            Destroy(gameObject);
         }
     }
 

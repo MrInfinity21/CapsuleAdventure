@@ -24,15 +24,15 @@ public class InventoryModel
             _items[item]++;
         }
         else
-        {   if (_items.Count >= _maxCapacity)
+        {   if (_items.Count < _maxCapacity)
             {
-                _items.Add(item, 0);
+                _items.Add(item, 1);
                 OnInventoryChanged?.Invoke();
             }
 
             else
             {
-                Debug.LogError("Inventory is FULL!");
+                Debug.Log("Inventory is FULL!");
             }
             
         }

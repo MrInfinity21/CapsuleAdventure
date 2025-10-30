@@ -15,6 +15,8 @@ public class InventoryController : MonoBehaviour
         {
             Destroy(gameObject);
         }
+
+        _inventoryModel = new InventoryModel(maxInventoryCapacity);
     }
 
     [SerializeField] private InventoryView inventoryView;
@@ -26,7 +28,7 @@ public class InventoryController : MonoBehaviour
 
     private void Start()
     {
-        _inventoryModel = new InventoryModel(maxInventoryCapacity);
+        //_inventoryModel = new InventoryModel(maxInventoryCapacity);
     }
 
     private void OnEnable()

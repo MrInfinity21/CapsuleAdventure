@@ -11,11 +11,7 @@ public interface ICollectItem
         void OnCollect(ICollectable collectable);
     }
 
-    public interface IManaCollectable
-    {
-        int ManaAmount { get; }
-        void Collect(GameObject collector);
-    }
+   
 
     public interface ILifeCollectable
     {
@@ -23,9 +19,5 @@ public interface ICollectItem
         void Collect(GameObject collector);
     }
 
-    public interface ICarrotCollectable
-    {
-        int CarrotAmount { get; }
-        void Collect(GameObject collector);
-    }
+    
 

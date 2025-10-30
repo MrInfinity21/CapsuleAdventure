@@ -46,7 +46,7 @@ public class InventoryView : MonoBehaviour
             {
                 Destroy(_itemViews[item]);
                 _itemViews.Remove(item);
-                
+                return;
             }
 
             _itemViews[item].SetItemCount(itemCount);
