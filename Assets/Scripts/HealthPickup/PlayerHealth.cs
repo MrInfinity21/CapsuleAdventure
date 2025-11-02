@@ -35,7 +35,7 @@ public class PlayerHealth : MonoBehaviour
     public void RestoreHealth(int amount)
     {
         _currentHealth += amount;
-        _currentHealth = Mathf.Clamp(_currentHealth, 0, _maxHealth);
+        _currentHealth = Mathf.Max(_currentHealth, 0);
 
         OnHealthChanged?.Invoke(_currentHealth);
 

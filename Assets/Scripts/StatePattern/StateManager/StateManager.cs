@@ -31,6 +31,11 @@ public class StateManager : MonoBehaviour
 
     private IState _currentState;
 
+    // Patrol Points
+    [Header("Patrol Settings")]
+    [SerializeField] private Transform[] patrolPoints;
+    public Transform[] PatrolPoints => patrolPoints;
+
     private void Awake()
     {
         _patrolState = new PatrolState(this);

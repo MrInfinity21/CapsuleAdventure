@@ -14,12 +14,19 @@ public class HealthPickup : MonoBehaviour, IHealthCollectable
         PlayerHealth playerHealth = collector.GetComponent<PlayerHealth>();
         if (playerHealth != null)
         {
-            playerHealth.RestoreHealth(_healthAmount);
-            OnHealthRestored?.Invoke(_healthAmount);
-        }
+            
+            if (playerHealth.CurrentHealth < playerHealth.MaxHealth)
+            {
+                playerHealth.RestoreHealth(_healthAmount);
+                OnHealthRestored?.Invoke(_healthAmount);
 
-        OnCollected?.Invoke();
-        Destroy(gameObject);
+                OnCollected?.Invoke();
+                Destroy(gameObject);
+            }
+
+        }
+        
+        
     }
 
     public void OnTriggerEnter(Collider other)

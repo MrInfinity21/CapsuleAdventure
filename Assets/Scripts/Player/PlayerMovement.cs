@@ -123,6 +123,8 @@ public class PlayerMovement : MonoBehaviour
 
     private void HandleStamina()
     {
+        bool isMoving = _moveInput.magnitude > 0.1f;
+
         if(_isSprinting && currentStamina > 0f)
         {
             currentStamina -= staminaDrainRate * Time.deltaTime;
@@ -132,6 +134,12 @@ public class PlayerMovement : MonoBehaviour
                 SetSprinting(false);
             }
         }
+
+        if(!_isSprinting && currentStamina > maxStamina)
+        {
+            currentStamina += staminaRegenRate * Time.deltaTime;
+            currentStamina = Mathf.Min(currentStamina, maxStamina);
+        }
         
 
         if (staminaText != null)
@@ -140,7 +148,9 @@ public class PlayerMovement : MonoBehaviour
 
     private void SetSprinting(bool sprinting)
     {
-        if (sprinting && currentStamina <= 0f)
+        bool isMoving = _moveInput.magnitude > 0.1f;
+
+        if (sprinting && (!isMoving || currentStamina <= 0f))
             sprinting = false;
 
         _isSprinting = sprinting;

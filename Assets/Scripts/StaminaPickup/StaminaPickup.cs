@@ -13,12 +13,21 @@ public class StaminaPickup : MonoBehaviour, IStaminaCollectable
     {
         if (collector.TryGetComponent<PlayerMovement>(out var playerMovement))
         {
-            playerMovement.RestoreStamina(_staminaAmount);
-            OnStaminaRestored?.Invoke(_staminaAmount);
+            if (playerMovement.GetCurrentStamina() < playerMovement.GetMaxStamina())
+            {
+                playerMovement.RestoreStamina(_staminaAmount);
+                OnStaminaRestored?.Invoke(_staminaAmount);
+
+                OnCollected?.Invoke();
+                Destroy(gameObject);
+            }
+            else
+            {
+                Debug.Log("Stamina is FULL!");
+            }
         }
 
-        OnCollected?.Invoke();
-        Destroy(gameObject);
+        
     }
 
     private void OnTriggerEnter(Collider other)
