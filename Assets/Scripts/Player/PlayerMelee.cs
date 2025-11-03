@@ -8,6 +8,7 @@ public class PlayerMelee : MonoBehaviour
 
     [Header("References")]
     [SerializeField] private Camera _playerCamera;
+    [SerializeField] private Animator _animator;
 
     [Header("Attack Settings")]
     [SerializeField] private float _attackDistance = 3f;
@@ -36,6 +37,10 @@ public class PlayerMelee : MonoBehaviour
     {
         _canAttack = false;
         _isAttacking= true;
+
+        if (_animator != null)
+            _animator.SetTrigger("Attack");
+
 
         yield return new WaitForSeconds(_attackDelay);
         AttackRaycast();
