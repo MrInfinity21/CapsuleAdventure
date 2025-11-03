@@ -1217,10 +1217,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ba78fa2232aacf847ae775aae85c26da, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _meleeWeapon: {fileID: 1629121605}
-  _swingAngle: 90
-  _swingSpeed: 10
-  _returnSpeed: 6
+  _playerCamera: {fileID: 414038601}
+  _attackDistance: 3
+  _attackDelay: 0.3
+  _attackCooldown: 0.7
+  _attackDamage: 1
+  _attackLayer:
+    serializedVersion: 2
+    m_Bits: 0
 --- !u!1 &779458238
 GameObject:
   m_ObjectHideFlags: 0
@@ -3626,6 +3630,7 @@ GameObject:
   - component: {fileID: 1744557150}
   - component: {fileID: 1744557151}
   - component: {fileID: 1744557152}
+  - component: {fileID: 1744557153}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -3830,6 +3835,28 @@ MonoBehaviour:
   foregroundImage: {fileID: 2102967069}
   backgroundImage: {fileID: 898726978}
   smoothSpeed: 5
+--- !u!95 &1744557153
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1744557140}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 63bd6154b46a7cd4298f7236b42e2af6, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &1802162973
 GameObject:
   m_ObjectHideFlags: 0

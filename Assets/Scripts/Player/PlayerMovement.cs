@@ -61,6 +61,14 @@ public class PlayerMovement : MonoBehaviour
         _inputActions.Player.Sprint.performed += ctx => SetSprinting(true);
         _inputActions.Player.Sprint.canceled += ctx => SetSprinting(false);
 
+        //Attack - just trigger meele swing, no stamina drain
+        _inputActions.Player.Attack.performed += ctx =>
+        {
+            if (meleeAttack != null)
+            {
+                meleeAttack.Swing();
+            }
+        };
 
     }
 
