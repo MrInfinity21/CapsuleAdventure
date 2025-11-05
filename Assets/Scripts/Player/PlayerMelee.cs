@@ -7,7 +7,7 @@ public class PlayerMelee : MonoBehaviour
 {
 
     [Header("References")]
-    [SerializeField] private Camera _playerCamera;
+    [SerializeField] private Transform _meleeWeapon;
     [SerializeField] private Animator _animator;
 
     [Header("Attack Settings")]
@@ -19,13 +19,6 @@ public class PlayerMelee : MonoBehaviour
 
     private bool _isAttacking = false;
     private bool _canAttack = true;
-
-    public void Start()
-    {
-        if(_playerCamera == null)
-            _playerCamera = Camera.main;
-        
-    }
 
     public void Swing()
     {
@@ -52,17 +45,34 @@ public class PlayerMelee : MonoBehaviour
 
     private void AttackRaycast()
     {
-        if(Physics.Raycast(_playerCamera.transform.position, _playerCamera.transform.forward, out RaycastHit hit, _attackDistance, _attackLayer))
+        if (_meleeWeapon == null) return;
+
+        Vector3 startPos = _meleeWeapon.position;
+        Vector3 direction = _meleeWeapon.forward;
+
+        if (Physics.Raycast(startPos, direction, out RaycastHit hit, _attackDistance, _attackLayer))
         {
+            Debug.Log("Hit: " + hit.collider.name);
 
             var damageable = hit.collider.GetComponent<IDamageable>();
-            if(damageable != null )
-            {
+            if (damageable != null)
                 damageable.TakeDamage(_attackDamage);
-            }
-
-            
         }
     }
 
+    private void OnDrawGizmosSelected()
+    {
+
+        if(_meleeWeapon == null) return;
+
+        Gizmos.color = Color.red;
+        Vector3 startPos = _meleeWeapon.position;
+        Vector3 endPos = startPos + _meleeWeapon.forward * _attackDistance;
+        Gizmos.DrawLine(startPos, endPos);
+        Gizmos.DrawSphere(endPos, 0.05f);
+    }
+
+
+
 }
+
