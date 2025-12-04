@@ -70,6 +70,12 @@ public class PlayerMovement : MonoBehaviour
             }
         };
 
+        _inputActions.Player.Inventory.performed += ctx =>
+        {
+            if (InventoryUI.Instance != null)
+                InventoryUI.Instance.ToggleInventory();
+        };
+
     }
 
     private void OnEnable() => _inputActions.Enable();

@@ -3,7 +3,7 @@ using UnityEngine.Events;
 public class HealthPickup : MonoBehaviour, IHealthCollectable
 {
     [SerializeField] private int _healthAmount = 20;
-
+    [SerializeField] private InventoryItem _itemData;
     public int HealthAmount => _healthAmount;
 
     public UnityEvent OnCollected;
@@ -12,6 +12,9 @@ public class HealthPickup : MonoBehaviour, IHealthCollectable
     public void Collect(GameObject collector)
     {
         PlayerHealth playerHealth = collector.GetComponent<PlayerHealth>();
+
+        
+
         if (playerHealth != null)
         {
             
@@ -20,9 +23,13 @@ public class HealthPickup : MonoBehaviour, IHealthCollectable
                 playerHealth.RestoreHealth(_healthAmount);
                 OnHealthRestored?.Invoke(_healthAmount);
 
+                InventoryController.Instance.AddItemToInventory(_itemData);
+
                 OnCollected?.Invoke();
                 Destroy(gameObject);
+
             }
+
 
         }
         
@@ -33,7 +40,13 @@ public class HealthPickup : MonoBehaviour, IHealthCollectable
     {
         if(other.TryGetComponent<PlayerHealth>(out var playerHealth))
         {
-            Collect(other.gameObject);
+           
+            if (playerHealth.CurrentHealth < playerHealth.MaxHealth)
+            {
+                Collect(other.gameObject);
+            }
+            
+            
         }
     }
 }
