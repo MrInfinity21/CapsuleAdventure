@@ -17,6 +17,8 @@ public class InventoryView : MonoBehaviour
     {
         inventoryPanel.SetActive(true);
     }
+
+   
     public void RefreshInventory(Dictionary<InventoryItem, int> items)
     {
         _itemViews.Clear();

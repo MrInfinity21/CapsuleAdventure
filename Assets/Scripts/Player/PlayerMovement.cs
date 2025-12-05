@@ -76,6 +76,13 @@ public class PlayerMovement : MonoBehaviour
                 InventoryUI.Instance.ToggleInventory();
         };
 
+        _inputActions.Player.Inventory.canceled += ctx =>
+        {
+            if (InventoryUI.Instance != null)
+                InventoryUI.Instance.HideInventory();
+        };
+
+
     }
 
     private void OnEnable() => _inputActions.Enable();

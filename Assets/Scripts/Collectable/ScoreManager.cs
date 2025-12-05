@@ -7,18 +7,18 @@ public class ScoreManager : MonoBehaviour
 
     [Header("Score Stats")]
     [SerializeField] private int _currentScore = 0;
-    [SerializeField] private int _itemsCollected = 0;
+    
 
     [Header("UI")]
     [SerializeField] private TextMeshProUGUI _scoreText;
-    [SerializeField] private TextMeshProUGUI _itemsText;
+    
 
     [Header("Events")]
     public UnityEvent<int> OnScoreChanged;
-    public UnityEvent<int> OnItemsCollected;
+    
 
     public int GetScore() => _currentScore;
-    public int GetItemsCollected() => _itemsCollected;
+    
 
     private void Awake()
     {
@@ -36,7 +36,7 @@ public class ScoreManager : MonoBehaviour
     private void Start()
     {
         UpdateScoreUI();
-        UpdateItemsUI();
+        
     }
 
     public void AddScore(int points)
@@ -46,12 +46,7 @@ public class ScoreManager : MonoBehaviour
         OnScoreChanged?.Invoke(_currentScore);
     }
 
-    public void AddItem()
-    {
-        _itemsCollected++;
-        UpdateItemsUI();
-        OnItemsCollected?.Invoke(_itemsCollected);
-    }
+    
 
     private void UpdateScoreUI()
     {
@@ -59,10 +54,6 @@ public class ScoreManager : MonoBehaviour
             _scoreText.text = "Score: " + _currentScore;
     }
 
-    private void UpdateItemsUI()
-    {
-        if (_itemsText != null)
-            _itemsText.text = "Items collected: " + _itemsCollected;
-    }
+    
 
 }

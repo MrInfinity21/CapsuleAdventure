@@ -15,8 +15,14 @@ public class InventoryUI : MonoBehaviour
 
     public void ToggleInventory()
     {
-        bool newState = !_inventoryCanvas.activeSelf;
-        _inventoryCanvas.SetActive(newState);
+        //bool newState = !_inventoryCanvas.activeSelf;
+        _inventoryCanvas.SetActive(true);
+    }
+
+    public void HideInventory()
+    {
+        //bool newState = !_inventoryCanvas.activeSelf;
+        _inventoryCanvas.SetActive(false);
     }
 }
 

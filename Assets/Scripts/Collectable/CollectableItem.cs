@@ -5,10 +5,10 @@ using UnityEngine.Events;
 public class CollectableItem : MonoBehaviour, ICollectable
 {
     [SerializeField] private int _pointValue = 10;
-
+    [SerializeField] private InventoryItem _itemData;
     public int PointValue => _pointValue;
 
-    // UnityEvents visible in Inspector
+   
     public UnityEvent OnItemCollected;
     public UnityEvent<int> OnPointsAwarded;
 
@@ -16,6 +16,8 @@ public class CollectableItem : MonoBehaviour, ICollectable
     {
         OnItemCollected?.Invoke();
         OnPointsAwarded?.Invoke(_pointValue);
+
+        InventoryController.Instance.AddItemToInventory(_itemData);
 
         Destroy(gameObject);
     }

@@ -123,6 +123,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _pointValue: 10
+  _itemData: {fileID: 11400000, guid: 90d7d5b8fe46f094299b80a84aaefc34, type: 2}
   OnItemCollected:
     m_PersistentCalls:
       m_Calls:
