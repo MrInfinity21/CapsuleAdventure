@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 7546970276766885687}
   - component: {fileID: 7904223718005399908}
   - component: {fileID: 5878161660952301433}
+  - component: {fileID: 5837366979402645210}
   m_Layer: 0
   m_Name: HealthPickup
   m_TagString: Untagged
@@ -30,13 +31,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5832512706014504608}
   serializedVersion: 2
-  m_LocalRotation: {x: -0.7071068, y: 0, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: -2.787, y: 0.444, z: 2.68}
-  m_LocalScale: {x: 0.15277381, y: 0.15277381, z: 0.15277381}
+  m_LocalRotation: {x: 0.6532815, y: 0.27059805, z: 0.27059805, w: 0.6532815}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 0.21163882, y: 0.046559602, z: 0.21163882}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: -90, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 45, y: 90, z: 90}
 --- !u!33 &560708022937692614
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -44,7 +45,7 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5832512706014504608}
-  m_Mesh: {fileID: 4068373912626513877, guid: 27ff36d2e66248340a9293807747b264, type: 3}
+  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!23 &4548817381187622206
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -130,6 +131,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _healthAmount: 20
+  _itemData: {fileID: 11400000, guid: 23a7539f8d28436478547e95366bcbd4, type: 2}
   OnCollected:
     m_PersistentCalls:
       m_Calls: []
@@ -155,7 +157,7 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 1.9999999, y: 0.7651887, z: 1.9999999}
+  m_Size: {x: 1, y: 1.0000002, z: 1.0000002}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &5878161660952301433
 MonoBehaviour:
@@ -170,3 +172,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rotationSpeed: {x: 0, y: 0, z: 100}
+--- !u!114 &5837366979402645210
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5832512706014504608}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cb8921f852c5c224fa6698f3d05ec628, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _rotationSpeed: 50
+  _rotationAxis: {x: 0, y: 1, z: 0}

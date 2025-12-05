@@ -3,7 +3,7 @@ using UnityEngine.Events;
 public class StaminaPickup : MonoBehaviour, IStaminaCollectable
 {
     [SerializeField] private int _staminaAmount = 20;
-
+    [SerializeField] private InventoryItem _itemData;
     public int StaminaAmount => _staminaAmount;
 
     public UnityEvent OnCollected;
@@ -11,20 +11,21 @@ public class StaminaPickup : MonoBehaviour, IStaminaCollectable
 
     public void Collect(GameObject collector)
     {
-        if (collector.TryGetComponent<PlayerMovement>(out var playerMovement))
+        PlayerMovement playerMovement = collector.GetComponent<PlayerMovement>();
+
+        if (playerMovement != null)
         {
             if (playerMovement.GetCurrentStamina() < playerMovement.GetMaxStamina())
             {
                 playerMovement.RestoreStamina(_staminaAmount);
                 OnStaminaRestored?.Invoke(_staminaAmount);
 
+                InventoryController.Instance.AddItemToInventory(_itemData);
+
                 OnCollected?.Invoke();
                 Destroy(gameObject);
             }
-            else
-            {
-                Debug.Log("Stamina is FULL!");
-            }
+    
         }
 
         
@@ -32,9 +33,12 @@ public class StaminaPickup : MonoBehaviour, IStaminaCollectable
 
     private void OnTriggerEnter(Collider other)
     {
-        if(other.TryGetComponent<PlayerMovement>(out var playerStamina))
+        if(other.TryGetComponent<PlayerMovement>(out var playerMovement))
         {
-            Collect(other.gameObject);
+            if (playerMovement.GetCurrentStamina() < playerMovement.GetMaxStamina())
+            { 
+                Collect(other.gameObject); 
+            } 
         }
     }
 }
