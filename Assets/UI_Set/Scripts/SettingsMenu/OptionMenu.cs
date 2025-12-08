@@ -87,7 +87,7 @@ public class OptionMenu : MonoBehaviour
 
     private void ReturnToPauseMenu()
     {
-        SceneManager.LoadScene(2);
+        SceneManager.LoadScene(3);
     }
 
     public void MainMenu()
