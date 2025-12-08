@@ -36,12 +36,15 @@ public class BatHitbox : MonoBehaviour
     {
         if (!_canDamage) return;
 
-        IDamageable damageable = other.GetComponent<IDamageable>();
+        var damageable = other.GetComponent<IDamageable>() ??
+            other.GetComponentInParent<IDamageable>() ??
+            other.GetComponentInChildren<IDamageable>();  
+        
         if(damageable != null)
         {
             damageable.TakeDamage(_damage);
-            Debug.Log("Bat Hit: " + other.name); 
         }
+
     }
 
     private void OnDrawGizmos()
