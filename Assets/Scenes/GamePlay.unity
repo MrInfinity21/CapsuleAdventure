@@ -1136,7 +1136,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ba78fa2232aacf847ae775aae85c26da, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _batHitBox: {fileID: 0}
+  _batHitBox: {fileID: 276541725}
   _animator: {fileID: 1744557153}
   _attackDelay: 0.3
   _activeTime: 0.2
