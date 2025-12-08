@@ -6,7 +6,7 @@ public class MainMenuButtons : MonoBehaviour
 
     public void StartNewGame()
     {
-        SceneManager.LoadScene(4);
+        SceneManager.LoadScene(2);
     }
 
     public void SettingsMenu()

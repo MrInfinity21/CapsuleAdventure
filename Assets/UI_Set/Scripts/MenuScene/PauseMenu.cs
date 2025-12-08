@@ -12,7 +12,7 @@ public class PauseMenu : MonoBehaviour
 
     public void ResumeGame()
     {
-        SceneManager.LoadScene(4);
+        SceneManager.LoadScene(2);
     }
 
     public void ReturnToMainMenu()
@@ -32,7 +32,7 @@ public class PauseMenu : MonoBehaviour
 
     public void SettingsMenu()
     {
-        SceneManager.LoadScene(3);
+        SceneManager.LoadScene(4);
     }
 
     public void ExitGame()

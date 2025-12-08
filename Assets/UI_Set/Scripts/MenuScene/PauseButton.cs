@@ -7,7 +7,7 @@ public class PauseButton : MonoBehaviour
 
     public void OpenPauseMenu()
     {
-        SceneManager.LoadScene(2);
+        SceneManager.LoadScene(3);
     }
 
 

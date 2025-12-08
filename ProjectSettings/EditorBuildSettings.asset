@@ -6,14 +6,20 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/Tutorial/Snigleton.unity
+    path: Assets/UI_Set/Scenes/MainMenuScene.unity
     guid: 99c9720ab356a0642a771bea13969a05
   - enabled: 1
-    path: Assets/Scenes/Tutorial/StatePattern.unity
-    guid: 8b247570374a5eb4e8a0e32dba2496cd
+    path: Assets/UI_Set/Scenes/OptionScene(MainMenu).unity
+    guid: af7b5a0a6a225de45a0980e0976e176f
   - enabled: 1
-    path: Assets/Scenes/Tutorial/ObserverPattern.unity
-    guid: 56864cdafc931aa4ebdd918c37b18b34
+    path: Assets/Scenes/GamePlay.unity
+    guid: 615e8a492b27fb84e8614abbba9485b3
+  - enabled: 1
+    path: Assets/UI_Set/Scenes/PauseMenu.unity
+    guid: ef902a97a664c0d4ca18d8abecdc4f4c
+  - enabled: 1
+    path: Assets/UI_Set/Scenes/OptionScene.unity
+    guid: 4e455b2d60ca7cf40b8bd8c1535b40a3
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 052faaac586de48259a63d0c4782560b, type: 3}
   m_UseUCBPForAssetBundles: 0
