@@ -11,19 +11,17 @@ public class OptionMenu : MonoBehaviour
     public Toggle _subtitlesToggle;
 
     public GameObject _confirmPopup;
-
-    private string settingsSceneName = "SettingsScene";
-
-    
+    public GameObject _settingCanvas;
 
     private GameSettings pendingSettings = new GameSettings();
-    private GameSettings currentSettings = new GameSettings();
+    private GameSettings currentSettings = GameSettings.Instance;
 
     private bool hasUnsavedChanges = false;
 
     private void Start()
     {
         LoadSettingsToUI();
+        _settingCanvas.SetActive(false);
     }
 
     void LoadSettingsToUI()
@@ -84,22 +82,21 @@ public class OptionMenu : MonoBehaviour
         }
         else
         {
-            ReturnToPauseMenu();
+            CloseSettings();
         }
     }
 
-    private void ReturnToPauseMenu()
+    public void CloseSettings()
     {
-        SceneManager.UnloadSceneAsync(settingsSceneName);
-
-        Time.timeScale = 0f;
-        Cursor.lockState = CursorLockMode.None;
-        Cursor.visible = true;
+        _settingCanvas.SetActive(false);
     }
 
-    public void MainMenu()
+    public void OpenSettings()
     {
-        Time.timeScale = 1f;
-        SceneManager.LoadScene(0);
+        LoadSettingsToUI();
+        _settingCanvas.SetActive(true);
     }
+
+
+
 }

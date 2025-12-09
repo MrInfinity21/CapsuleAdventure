@@ -7,6 +7,7 @@ public class PauseMenu : MonoBehaviour
 
     [Header("UI")]
     public GameObject pauseMenuUI;
+    public OptionMenu optionMenuUI;
 
     [Header("Confirmation Panels")]
     public GameObject _returnToMainConfirmPanel;
@@ -25,8 +26,8 @@ public class PauseMenu : MonoBehaviour
 
     public void SettingsMenu()
     {
-        SceneManager.LoadScene("SettingsScene", LoadSceneMode.Additive);
-
+        pauseMenuUI.SetActive(false);
+        optionMenuUI.OpenSettings();
         Time.timeScale = 0f;
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;
