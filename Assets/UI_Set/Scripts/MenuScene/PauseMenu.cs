@@ -14,6 +14,11 @@ public class PauseMenu : MonoBehaviour
     public GameObject _exitGameConfirmPanel;
 
 
+    private void Start()
+    {
+        optionMenuUI.SetPauseMenu(pauseMenuUI);
+    }
+
     public void ResumeGame()
     {
         Time.timeScale = 1f;
@@ -28,9 +33,7 @@ public class PauseMenu : MonoBehaviour
     {
         pauseMenuUI.SetActive(false);
         optionMenuUI.OpenSettings();
-        Time.timeScale = 0f;
-        Cursor.lockState = CursorLockMode.None;
-        Cursor.visible = true;
+     
     }
 
   
@@ -41,14 +44,8 @@ public class PauseMenu : MonoBehaviour
 
     public void ConfirmReturnYes()
     {
-        pauseMenuUI.SetActive(false);
-
-        if (SceneManager.GetSceneByName("SettingsScene").isLoaded)
-            SceneManager.UnloadSceneAsync("SettingsSCene");
-
         Time.timeScale = 1f;
-        
-        SceneManager.LoadScene(0);
+        UnityEngine.SceneManagement.SceneManager.LoadScene(0);
     }
 
     public void ConfirmReturnNo()

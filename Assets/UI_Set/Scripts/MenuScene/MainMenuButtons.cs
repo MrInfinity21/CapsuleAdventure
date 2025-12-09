@@ -11,7 +11,7 @@ public class MainMenuButtons : MonoBehaviour
 
     public void SettingsMenu()
     {
-        SceneManager.LoadScene(1);
+        SceneManager.LoadScene(4);
     }
 
     public void ExitGame()

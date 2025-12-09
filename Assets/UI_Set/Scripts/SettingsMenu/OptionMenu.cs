@@ -6,22 +6,30 @@ using System.Globalization;
 public class OptionMenu : MonoBehaviour
 {
     [Header("UI")]
+    public GameObject optionMenuUI;
     public Slider _masterSlider;
     public Slider _sfxSlider;
     public Toggle _subtitlesToggle;
 
     public GameObject _confirmPopup;
-    public GameObject _settingCanvas;
+  
 
     private GameSettings pendingSettings = new GameSettings();
     private GameSettings currentSettings = GameSettings.Instance;
 
     private bool hasUnsavedChanges = false;
 
+    private GameObject pauseMenuUI;
+
+    public void SetPauseMenu(GameObject pauseMenu)
+    {
+        pauseMenuUI = pauseMenu;
+    }
+
     private void Start()
     {
         LoadSettingsToUI();
-        _settingCanvas.SetActive(false);
+        optionMenuUI.SetActive(false);
     }
 
     void LoadSettingsToUI()
@@ -76,25 +84,23 @@ public class OptionMenu : MonoBehaviour
 
     public void OnBackPressed()
     {
-        if (hasUnsavedChanges)
-        {
-            _confirmPopup.SetActive(true);
-        }
-        else
-        {
-            CloseSettings();
-        }
+        optionMenuUI.SetActive(false);
+
+        if(pauseMenuUI != null)
+            pauseMenuUI.SetActive(true);
     }
 
-    public void CloseSettings()
+    public void OnBackPressedMain()
     {
-        _settingCanvas.SetActive(false);
+        SceneManager.LoadScene(0);
     }
+
+
 
     public void OpenSettings()
     {
         LoadSettingsToUI();
-        _settingCanvas.SetActive(true);
+        optionMenuUI.SetActive(true);
     }
 
 
