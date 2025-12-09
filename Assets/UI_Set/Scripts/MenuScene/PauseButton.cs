@@ -1,24 +1,47 @@
+using UnityEditor.SearchService;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
+
 public class PauseButton : MonoBehaviour
 {
-    private string pauseMenuScene;
+    public GameObject pauseMenuUI;
+    private bool isPaused = false;
 
 
     private void Update()
     {
         if (Input.GetKeyDown(KeyCode.Escape))
         {
-            OpenPauseMenu();
+            if (isPaused)
+                ResumeGame();
+            else
+                PauseGame();
         }
     }
 
-    public void OpenPauseMenu()
+    public void PauseGame()
     {
+        pauseMenuUI.SetActive(true);
+
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;
-        SceneManager.LoadScene(3);
+
+        Time.timeScale = 0f;
+        isPaused = true;
+    }
+
+
+
+    public void ResumeGame()
+    {
+        pauseMenuUI.SetActive(false);
+
+        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
+
+        Time.timeScale = 1f;
+        isPaused = false;
     }
 
 

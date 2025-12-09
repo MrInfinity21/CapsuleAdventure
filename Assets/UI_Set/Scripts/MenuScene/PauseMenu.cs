@@ -5,6 +5,9 @@ using UnityEngine.SceneManagement;
 public class PauseMenu : MonoBehaviour
 {
 
+    [Header("UI")]
+    public GameObject pauseMenuUI;
+
     [Header("Confirmation Panels")]
     public GameObject _returnToMainConfirmPanel;
     public GameObject _exitGameConfirmPanel;
@@ -12,9 +15,24 @@ public class PauseMenu : MonoBehaviour
 
     public void ResumeGame()
     {
-        SceneManager.LoadScene(2);
+        Time.timeScale = 1f;
+
+        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
+
+        pauseMenuUI.SetActive(false);
     }
 
+    public void SettingsMenu()
+    {
+        SceneManager.LoadScene("SettingsScene", LoadSceneMode.Additive);
+
+        Time.timeScale = 0f;
+        Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;
+    }
+
+  
     public void ReturnToMainMenu()
     {
         _returnToMainConfirmPanel.SetActive(true);
@@ -22,6 +40,13 @@ public class PauseMenu : MonoBehaviour
 
     public void ConfirmReturnYes()
     {
+        pauseMenuUI.SetActive(false);
+
+        if (SceneManager.GetSceneByName("SettingsScene").isLoaded)
+            SceneManager.UnloadSceneAsync("SettingsSCene");
+
+        Time.timeScale = 1f;
+        
         SceneManager.LoadScene(0);
     }
 
@@ -30,11 +55,7 @@ public class PauseMenu : MonoBehaviour
         _returnToMainConfirmPanel.SetActive(false);
     }
 
-    public void SettingsMenu()
-    {
-        SceneManager.LoadScene(4);
-    }
-
+    
     public void ExitGame()
     {
         _exitGameConfirmPanel.SetActive(true);

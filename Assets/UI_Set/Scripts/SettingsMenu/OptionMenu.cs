@@ -1,6 +1,7 @@
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using System.Globalization;
 
 public class OptionMenu : MonoBehaviour
 {
@@ -11,7 +12,9 @@ public class OptionMenu : MonoBehaviour
 
     public GameObject _confirmPopup;
 
-    private string _backPauseMenu;
+    private string settingsSceneName = "SettingsScene";
+
+    
 
     private GameSettings pendingSettings = new GameSettings();
     private GameSettings currentSettings = new GameSettings();
@@ -87,11 +90,16 @@ public class OptionMenu : MonoBehaviour
 
     private void ReturnToPauseMenu()
     {
-        SceneManager.LoadScene(3);
+        SceneManager.UnloadSceneAsync(settingsSceneName);
+
+        Time.timeScale = 0f;
+        Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;
     }
 
     public void MainMenu()
     {
+        Time.timeScale = 1f;
         SceneManager.LoadScene(0);
     }
 }
