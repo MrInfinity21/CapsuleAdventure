@@ -1,6 +1,7 @@
 using UnityEngine;
 using UnityEngine.UI;
 using System.Collections;
+using UnityEngine.InputSystem;
 public class ObjectiveDisplay : MonoBehaviour
 {
     [Header("UI Refer")]
@@ -13,7 +14,17 @@ public class ObjectiveDisplay : MonoBehaviour
     private bool _isVisible = false;
     private Coroutine _currentFadeRoutine;
 
+    private InputSystem_Actions _inputActions;
 
+
+    private void Awake()
+    {
+        _inputActions = new InputSystem_Actions();
+        _inputActions.Player.DisplayObjective.performed += ctx => ShowObjective();
+    }
+
+    private void OnEnable() => _inputActions.Enable();
+    private void OnDisable() => _inputActions.Disable();
     void Start()
     {
         if (_objectivePanel != null)
@@ -23,23 +34,14 @@ public class ObjectiveDisplay : MonoBehaviour
         }     
     }
 
-    void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.Tab))
-        {
-            ShowObjective();
-        }
-    }
 
     public void ShowObjective()
     {
-    
-
         if (_currentFadeRoutine != null)
              StopCoroutine(_currentFadeRoutine);
 
             _currentFadeRoutine = StartCoroutine(ShowAndHideRoutine());
-        
+    
     }
 
     private IEnumerator ShowAndHideRoutine()
