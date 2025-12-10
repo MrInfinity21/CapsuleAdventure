@@ -151,7 +151,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _staminaAmount: 20
-  _itemData: {fileID: 0}
+  _itemData: {fileID: 11400000, guid: 31cf9e93aa6918c4f870a3088c4441c7, type: 2}
   OnCollected:
     m_PersistentCalls:
       m_Calls: []
