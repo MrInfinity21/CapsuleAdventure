@@ -14,6 +14,11 @@ public class MainMenuButtons : MonoBehaviour
         SceneManager.LoadScene(4);
     }
 
+    public void CreditsScene()
+    {
+        SceneManager.LoadScene(7);
+    }
+
     public void ExitGame()
     {
         _exitConfirmPanel.SetActive(true);

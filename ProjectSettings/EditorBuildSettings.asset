@@ -16,7 +16,7 @@ EditorBuildSettings:
     guid: 615e8a492b27fb84e8614abbba9485b3
   - enabled: 1
     path: Assets/Scenes/SettingsScene.unity
-    guid: 4e455b2d60ca7cf40b8bd8c1535b40a3
+    guid: af7b5a0a6a225de45a0980e0976e176f
   - enabled: 1
     path: Assets/Scenes/SettingsScene(MainMenu).unity
     guid: 608e206ec3d9e2b4ea59894b5d5d0154
@@ -26,6 +26,9 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/GameOver.unity
     guid: 596a1c63d8e5fb9439ef47870f13b4f4
+  - enabled: 1
+    path: Assets/Scenes/CreditScene.unity
+    guid: 04b9a18767393ce4d8b0ba0a7719af51
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 052faaac586de48259a63d0c4782560b, type: 3}
   m_UseUCBPForAssetBundles: 0
