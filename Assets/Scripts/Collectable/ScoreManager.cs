@@ -1,6 +1,7 @@
 using UnityEngine;
 using UnityEngine.Events;
 using TMPro;
+using UnityEngine.SceneManagement;
 public class ScoreManager : MonoBehaviour
 {
     public static ScoreManager Instance;
@@ -30,14 +31,45 @@ public class ScoreManager : MonoBehaviour
         else
         {
             Destroy(gameObject);
+            return;
         }
+    }
+
+    private void OnEnable()
+    {
+        SceneManager.sceneLoaded += OnSceneLoaded;
+    }
+
+    private void OnDisable()
+    {
+        SceneManager.sceneLoaded -= OnSceneLoaded;
     }
 
     private void Start()
     {
         UpdateScoreUI();
+        FindScoreUI();
         
     }
+
+    private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
+    {
+        FindScoreUI();
+        UpdateScoreUI();
+    }
+
+    private void FindScoreUI()
+    {
+        if (_scoreText == null)
+        {
+            GameObject scoreObj = GameObject.FindWithTag("ScoreText");
+            if (scoreObj != null)
+            {
+                _scoreText = scoreObj.GetComponent<TextMeshProUGUI>();
+            }
+        }
+    }
+
 
     public void AddScore(int points)
     {
@@ -50,8 +82,12 @@ public class ScoreManager : MonoBehaviour
 
     private void UpdateScoreUI()
     {
-        if (_scoreText != null) 
-            _scoreText.text = "Score: " + _currentScore;
+        if(_scoreText != null)
+        {
+            _scoreText?.SetText("Score: " + _currentScore);
+        }
+        
+            
     }
 
     

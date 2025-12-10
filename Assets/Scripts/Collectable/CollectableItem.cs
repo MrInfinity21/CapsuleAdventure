@@ -7,8 +7,9 @@ public class CollectableItem : MonoBehaviour, ICollectable
     [SerializeField] private int _pointValue = 10;
     [SerializeField] private InventoryItem _itemData;
     public int PointValue => _pointValue;
-
-   
+    
+    
+    
     public UnityEvent OnItemCollected;
     public UnityEvent<int> OnPointsAwarded;
 
@@ -17,7 +18,17 @@ public class CollectableItem : MonoBehaviour, ICollectable
         OnItemCollected?.Invoke();
         OnPointsAwarded?.Invoke(_pointValue);
 
-        InventoryController.Instance.AddItemToInventory(_itemData);
+        if(ScoreManager.Instance != null)
+        {
+            ScoreManager.Instance.AddScore(_pointValue);
+
+        }
+
+        if (InventoryController.Instance != null)
+        {
+            InventoryController.Instance.AddItemToInventory(_itemData);
+
+        }
 
         Destroy(gameObject);
     }
