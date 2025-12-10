@@ -2140,6 +2140,7 @@ GameObject:
   - component: {fileID: 456073684}
   - component: {fileID: 456073683}
   - component: {fileID: 456073682}
+  - component: {fileID: 456073685}
   m_Layer: 0
   m_Name: Obstacles_1 (9)
   m_TagString: Untagged
@@ -2177,7 +2178,7 @@ BoxCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
@@ -2236,6 +2237,18 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 456073680}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &456073685
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 456073680}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 792f9157a261cc44995a3c1dc00876b9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &480883867
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5768,7 +5781,7 @@ MonoBehaviour:
   m_OverrideVoxelSize: 0
   m_VoxelSize: 0.16666667
   m_MinRegionArea: 2
-  m_NavMeshData: {fileID: 0}
+  m_NavMeshData: {fileID: 23800000, guid: 7a0dfa3848b81734baa3771c924a9a41, type: 2}
   m_BuildHeightMesh: 0
 --- !u!1 &1252185898
 GameObject:
@@ -8237,6 +8250,7 @@ GameObject:
   - component: {fileID: 1744557151}
   - component: {fileID: 1744557152}
   - component: {fileID: 1744557153}
+  - component: {fileID: 1744557154}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -8370,7 +8384,6 @@ MonoBehaviour:
   maxStamina: 100
   staminaDrainRate: 25
   staminaRegenRate: 15
-  staminaText: {fileID: 0}
   meleeAttack: {fileID: 538871076}
 --- !u!143 &1744557149
 CharacterController:
@@ -8463,6 +8476,20 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &1744557154
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1744557140}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5eb16e9e57dfaf1459d5b5b1f2893f4f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerHealth: {fileID: 1744557146}
+  gameOverSceneIndex: 6
 --- !u!1 &1767196773
 GameObject:
   m_ObjectHideFlags: 0

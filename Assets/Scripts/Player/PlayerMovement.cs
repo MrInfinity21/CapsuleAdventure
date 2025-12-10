@@ -34,8 +34,7 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private float staminaRegenRate = 15f;
     private float currentStamina;
     
-    [Header("UI")]
-    [SerializeField] private TextMeshProUGUI staminaText;
+   
 
 
     [Header("Melee Weapon")]
@@ -161,8 +160,7 @@ public class PlayerMovement : MonoBehaviour
         }
         
 
-        if (staminaText != null)
-            staminaText.text = $"Stamina: {Mathf.RoundToInt(currentStamina)}/{Mathf.RoundToInt(maxStamina)}";       
+       
     }
 
     private void SetSprinting(bool sprinting)
