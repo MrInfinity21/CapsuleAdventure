@@ -12,7 +12,7 @@ EditorBuildSettings:
     path: Assets/Scenes/SettingsScene.unity
     guid: af7b5a0a6a225de45a0980e0976e176f
   - enabled: 1
-    path: Assets/Scenes/GamePlay.unity
+    path: Assets/Scenes/TutorialScene.unity
     guid: 615e8a492b27fb84e8614abbba9485b3
   - enabled: 1
     path: Assets/Scenes/SettingsScene.unity
