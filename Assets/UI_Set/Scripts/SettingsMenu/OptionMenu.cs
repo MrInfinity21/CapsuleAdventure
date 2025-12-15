@@ -12,7 +12,8 @@ public class OptionMenu : MonoBehaviour
     public Toggle _subtitlesToggle;
 
     public GameObject _confirmPopup;
-  
+
+    public bool isSettingsScene = false;
 
     private GameSettings pendingSettings = new GameSettings();
     private GameSettings currentSettings = GameSettings.Instance;
@@ -29,7 +30,17 @@ public class OptionMenu : MonoBehaviour
     private void Start()
     {
         LoadSettingsToUI();
-        optionMenuUI.SetActive(false);
+
+        if (!isSettingsScene)
+        {
+            optionMenuUI.SetActive(false);
+        }
+        else
+        {
+            optionMenuUI.SetActive(true);
+        }
+
+            
     }
 
     void LoadSettingsToUI()

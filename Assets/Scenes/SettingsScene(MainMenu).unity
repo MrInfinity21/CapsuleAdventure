@@ -206,7 +206,7 @@ Transform:
   m_GameObject: {fileID: 330585543}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 1, z: -10}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -513,12 +513,28 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 52082980254344606, guid: 5b54de456ef070d48949f668af03ed57, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 95513280183423425, guid: 5b54de456ef070d48949f668af03ed57, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3367422016328416792, guid: 5b54de456ef070d48949f668af03ed57, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4402625408308810828, guid: 5b54de456ef070d48949f668af03ed57, type: 3}
+      propertyPath: isSettingsScene
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4482763656382934199, guid: 5b54de456ef070d48949f668af03ed57, type: 3}
       propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4830506408017963540, guid: 5b54de456ef070d48949f668af03ed57, type: 3}
+      propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4902705458089120348, guid: 5b54de456ef070d48949f668af03ed57, type: 3}
@@ -609,9 +625,21 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7449305578620810455, guid: 5b54de456ef070d48949f668af03ed57, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8152975053237956760, guid: 5b54de456ef070d48949f668af03ed57, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: OnBackPressedMain
+      objectReference: {fileID: 0}
+    - target: {fileID: 8275867014993194492, guid: 5b54de456ef070d48949f668af03ed57, type: 3}
+      propertyPath: m_Camera
+      value: 
+      objectReference: {fileID: 330585545}
+    - target: {fileID: 8275867014993194492, guid: 5b54de456ef070d48949f668af03ed57, type: 3}
+      propertyPath: m_RenderMode
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8522531444982900908, guid: 5b54de456ef070d48949f668af03ed57, type: 3}
       propertyPath: m_AnchorMax.y
