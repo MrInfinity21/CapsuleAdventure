@@ -722,7 +722,6 @@ GameObject:
   - component: {fileID: 2673490023228712714}
   - component: {fileID: 5702081527708508433}
   - component: {fileID: 3974407198161157843}
-  - component: {fileID: 6206284211239009319}
   m_Layer: 5
   m_Name: ExitGameButton
   m_TagString: Untagged
@@ -778,7 +777,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: a747e626c5fdf7249987e20e959da535, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 9d5ef24e38d266d4b91b5b183f182705, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -817,10 +816,10 @@ MonoBehaviour:
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
   m_SpriteState:
-    m_HighlightedSprite: {fileID: 21300000, guid: c2fd975786ebaef47b36b2e70ff49b8b, type: 3}
-    m_PressedSprite: {fileID: 21300000, guid: c2fd975786ebaef47b36b2e70ff49b8b, type: 3}
-    m_SelectedSprite: {fileID: 21300000, guid: c2fd975786ebaef47b36b2e70ff49b8b, type: 3}
-    m_DisabledSprite: {fileID: 0}
+    m_HighlightedSprite: {fileID: 21300000, guid: 15414f89ddff4d349bd6b9ddf2a4c006, type: 3}
+    m_PressedSprite: {fileID: 21300000, guid: 15414f89ddff4d349bd6b9ddf2a4c006, type: 3}
+    m_SelectedSprite: {fileID: 21300000, guid: 15414f89ddff4d349bd6b9ddf2a4c006, type: 3}
+    m_DisabledSprite: {fileID: 21300000, guid: 9d5ef24e38d266d4b91b5b183f182705, type: 3}
   m_AnimationTriggers:
     m_NormalTrigger: Normal
     m_HighlightedTrigger: Highlighted
@@ -844,22 +843,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
---- !u!114 &6206284211239009319
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3331383812356622834}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 93c4dadc166f45143a57f2d58c52c9b5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _buttonText: {fileID: 51593480084478426}
-  _normalColor: {r: 0, g: 0, b: 0, a: 1}
-  _hoverColor: {r: 1, g: 1, b: 1, a: 1}
-  _pressedColor: {r: 1, g: 0.92156863, b: 0.015686275, a: 1}
 --- !u!1 &3881244484631820607
 GameObject:
   m_ObjectHideFlags: 0
@@ -873,7 +856,6 @@ GameObject:
   - component: {fileID: 8882717667981841854}
   - component: {fileID: 1050972349460752347}
   - component: {fileID: 4884282681097966042}
-  - component: {fileID: 5563258574490873648}
   m_Layer: 5
   m_Name: SettingsButton
   m_TagString: Untagged
@@ -968,10 +950,10 @@ MonoBehaviour:
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
   m_SpriteState:
-    m_HighlightedSprite: {fileID: 21300000, guid: cce0864ca9b369448a374800a81d46bd, type: 3}
-    m_PressedSprite: {fileID: 21300000, guid: cce0864ca9b369448a374800a81d46bd, type: 3}
-    m_SelectedSprite: {fileID: 21300000, guid: cce0864ca9b369448a374800a81d46bd, type: 3}
-    m_DisabledSprite: {fileID: 0}
+    m_HighlightedSprite: {fileID: 21300000, guid: 22da8902aee90d9409a49ebe527d02f0, type: 3}
+    m_PressedSprite: {fileID: 21300000, guid: 22da8902aee90d9409a49ebe527d02f0, type: 3}
+    m_SelectedSprite: {fileID: 21300000, guid: 22da8902aee90d9409a49ebe527d02f0, type: 3}
+    m_DisabledSprite: {fileID: 21300000, guid: f814d5cdbbd4652419a8b9182dde7b3d, type: 3}
   m_AnimationTriggers:
     m_NormalTrigger: Normal
     m_HighlightedTrigger: Highlighted
@@ -1017,22 +999,6 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!114 &5563258574490873648
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3881244484631820607}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 93c4dadc166f45143a57f2d58c52c9b5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _buttonText: {fileID: 4728167474875938648}
-  _normalColor: {r: 0, g: 0, b: 0, a: 1}
-  _hoverColor: {r: 1, g: 1, b: 1, a: 1}
-  _pressedColor: {r: 1, g: 0.92156863, b: 0.015686275, a: 1}
 --- !u!1 &3912904016199129962
 GameObject:
   m_ObjectHideFlags: 0
@@ -1454,7 +1420,6 @@ GameObject:
   - component: {fileID: 2968965546022811695}
   - component: {fileID: 4690582463739709059}
   - component: {fileID: 1330665161366109131}
-  - component: {fileID: 140393412805123187}
   m_Layer: 5
   m_Name: ResumeButtons
   m_TagString: Untagged
@@ -1549,10 +1514,10 @@ MonoBehaviour:
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
   m_SpriteState:
-    m_HighlightedSprite: {fileID: 21300000, guid: 51a6ac88d1957fd44beb462a0614293f, type: 3}
-    m_PressedSprite: {fileID: 21300000, guid: 51a6ac88d1957fd44beb462a0614293f, type: 3}
-    m_SelectedSprite: {fileID: 21300000, guid: 51a6ac88d1957fd44beb462a0614293f, type: 3}
-    m_DisabledSprite: {fileID: 0}
+    m_HighlightedSprite: {fileID: 21300000, guid: 1fcd863a0ef14834ea51ab110fc42944, type: 3}
+    m_PressedSprite: {fileID: 21300000, guid: 1fcd863a0ef14834ea51ab110fc42944, type: 3}
+    m_SelectedSprite: {fileID: 21300000, guid: 1fcd863a0ef14834ea51ab110fc42944, type: 3}
+    m_DisabledSprite: {fileID: 21300000, guid: cb9a2754492e86e4e94043ba7ce1a064, type: 3}
   m_AnimationTriggers:
     m_NormalTrigger: Normal
     m_HighlightedTrigger: Highlighted
@@ -1576,22 +1541,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
---- !u!114 &140393412805123187
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4622785750692189346}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 93c4dadc166f45143a57f2d58c52c9b5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _buttonText: {fileID: 4503191150783785063}
-  _normalColor: {r: 0, g: 0, b: 0, a: 1}
-  _hoverColor: {r: 1, g: 1, b: 1, a: 1}
-  _pressedColor: {r: 1, g: 0.92156863, b: 0.015686275, a: 1}
 --- !u!1 &4958785992690090225
 GameObject:
   m_ObjectHideFlags: 0
@@ -1756,7 +1705,6 @@ GameObject:
   - component: {fileID: 4553220470593749812}
   - component: {fileID: 5678461858276920140}
   - component: {fileID: 5832531396635801582}
-  - component: {fileID: 1491062651544867173}
   m_Layer: 5
   m_Name: ReturnToMainButton
   m_TagString: Untagged
@@ -1851,10 +1799,10 @@ MonoBehaviour:
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
   m_SpriteState:
-    m_HighlightedSprite: {fileID: 21300000, guid: c2fd975786ebaef47b36b2e70ff49b8b, type: 3}
-    m_PressedSprite: {fileID: 21300000, guid: c2fd975786ebaef47b36b2e70ff49b8b, type: 3}
-    m_SelectedSprite: {fileID: 21300000, guid: c2fd975786ebaef47b36b2e70ff49b8b, type: 3}
-    m_DisabledSprite: {fileID: 0}
+    m_HighlightedSprite: {fileID: 21300000, guid: 39a19c7cbb302a54d89f731109e5437e, type: 3}
+    m_PressedSprite: {fileID: 21300000, guid: 39a19c7cbb302a54d89f731109e5437e, type: 3}
+    m_SelectedSprite: {fileID: 21300000, guid: 39a19c7cbb302a54d89f731109e5437e, type: 3}
+    m_DisabledSprite: {fileID: 21300000, guid: a747e626c5fdf7249987e20e959da535, type: 3}
   m_AnimationTriggers:
     m_NormalTrigger: Normal
     m_HighlightedTrigger: Highlighted
@@ -1878,22 +1826,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
---- !u!114 &1491062651544867173
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5192632453152778350}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 93c4dadc166f45143a57f2d58c52c9b5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _buttonText: {fileID: 6424741863217659593}
-  _normalColor: {r: 0, g: 0, b: 0, a: 1}
-  _hoverColor: {r: 1, g: 1, b: 1, a: 1}
-  _pressedColor: {r: 1, g: 0.92156863, b: 0.015686275, a: 1}
 --- !u!1 &5233134831004059802
 GameObject:
   m_ObjectHideFlags: 0
@@ -2067,7 +1999,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &7013526653537447724
 RectTransform:
   m_ObjectHideFlags: 0
@@ -3353,7 +3285,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &3951622505408814167
 RectTransform:
   m_ObjectHideFlags: 0

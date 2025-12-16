@@ -2845,6 +2845,7 @@ MonoBehaviour:
   _sfxSlider: {fileID: 242901564}
   _subtitlesToggle: {fileID: 914029531}
   _confirmPopup: {fileID: 914029529}
+  isSettingsScene: 0
 --- !u!114 &608900732
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8375,7 +8376,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9117845516429171356, guid: 84c69268807ec964daa6bd56d545da63, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 9161636310289844755, guid: 84c69268807ec964daa6bd56d545da63, type: 3}
       propertyPath: m_IsActive
